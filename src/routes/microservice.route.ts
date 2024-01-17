@@ -20,8 +20,13 @@ microserviceRouter.get("/:id", microserviceController.getById);
 
 microserviceRouter.post("/", requireAdmin, microserviceController.getMicroserviceByName);
 
-microserviceRouter.patch("/:id", validateResource(updateMicroserviceSchema), microserviceController.updateMicroservice);
+microserviceRouter.patch(
+  "/:id",
+  requireAdmin,
+  validateResource(updateMicroserviceSchema),
+  microserviceController.updateMicroservice
+);
 
-microserviceRouter.delete("/:id", microserviceController.delete);
+microserviceRouter.delete("/:id", requireAdmin, microserviceController.delete);
 
 export default microserviceRouter;
