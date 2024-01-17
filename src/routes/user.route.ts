@@ -13,7 +13,7 @@ userRouter.get("/", userController.getUsers);
 
 userRouter.get("/:id", userController.getUserById);
 
-userRouter.post("/", requireAdmin, userController.getUserByEmail);
+userRouter.post("/", userController.getUserByEmail);
 
 userRouter.post("/update/:id", validateResource(updateUserSchema), userController.updateUser);
 

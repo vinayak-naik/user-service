@@ -12,7 +12,7 @@ app.use(express.json());
 
 app.use(deserializeUser);
 
-app.use("/api", indexRouter);
+app.use("/user/api", indexRouter);
 
 // this is for 404
 app.use(function (req, res) {

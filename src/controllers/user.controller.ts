@@ -45,7 +45,7 @@ export default class UserController extends BaseController {
       const resource = await this.service.findOne({ email: req.body.email }, {});
       if (!resource) {
         const failedMessage = "No user found";
-        return sendResponse(res, 400, false, null, failedMessage);
+        return sendResponse(res, 204, false, null, failedMessage);
       }
       const successMessage = "success";
       return sendResponse(res, 200, true, resource, successMessage);

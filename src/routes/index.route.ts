@@ -2,10 +2,11 @@ import { Router } from "express";
 import adminRouter from "./admin.route";
 import userRouter from "./user.route";
 import microserviceRouter from "./microservice.route";
+import sendResponse from "../utils/sendResponse";
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => res.send("Server is running"));
+indexRouter.get("/test", (req, res) => sendResponse(res, 200, true, null, "User service is running"));
 
 indexRouter.use("/admin", adminRouter);
 
